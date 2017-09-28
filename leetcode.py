@@ -129,13 +129,16 @@ class Solution(object):
 	def threeSum(self, nums):
 		solution = []
 		nums.sort()
-		# left = b index
-		# right = c index
 		# a+b+c == 0; b+c == -a
 		left = right = 0
+		# iterate through
+		# i = a index
 		for i in range(len(nums)-2):
+			# skip repeated integers
 			if i > 0 and nums[i] == nums[i-1]:
 				continue
+			# left = b index
+			# right = c index
 			left, right = i+1, len(nums)-1
 			while left < right: 
 				# b+c < -a; increase b 
