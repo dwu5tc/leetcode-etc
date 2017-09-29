@@ -41,6 +41,7 @@ var mergeTrees = function(t1, t2) {
 
 // 581 shortest unsorted continuous subarray (easy)
 // given an int array, return the length of the one continuous subarray st by sorting it (ascending), the whole array will be sorted (ascending)
+// THIS O(N) SOLUTION TOOK ME WAY TOO LONG...
 
 var findUnsortedSubarray = function(nums) {
 	if (nums.length > 1) {
@@ -74,6 +75,26 @@ var findUnsortedSubarray = function(nums) {
 	}
 	// already sorted
 	return 0;
+}
+
+// 141 linked list cycle (easy)
+// given a link list, return whether it contains a cycle
+// without extra space
+
+var hasCycle = function(head) {
+	if (head) {
+		var slow = head;
+		var fast = head;
+		while (slow.next && fast.next.next) {
+			slow = slow.next;
+			fast = fast.next.next;
+			if (slow == fast) {
+				return true;
+			}
+		}
+		return false;
+	}
+	return false;
 }
 
 var twoSum = (nums, target) => {
