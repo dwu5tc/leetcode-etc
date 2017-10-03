@@ -6,6 +6,7 @@ class Solution(object):
 		# then get last n bits by & 11...1 (n ones)
 		return ~num & ((1<<num.bit_length())-1)
 
+
 	# 500 keyboard row (easy)
 	# given list of words, return words that can be typed using letters on one row of the american keyboard
 	def findWords(self, words):
@@ -46,6 +47,7 @@ class Solution(object):
 	def findWords(self, words):
 		return filter(re.compile('(?i)([qwertyuiop]*|[asdfghjkl]*|[zxcvbnm]*)$').match, words) 
 
+
 	# 515 find largest value in each tree row (med)
 	def largestValues(self, root):
 		solution = []
@@ -80,6 +82,7 @@ class Solution(object):
 		right = self.largestValues(root.right)
 		return [root.val] + map(max, left, right)
 
+
 	# 2 add two numbers (med)
 	# given 2 linked lists representing 2 numbers, return a linked list representing their sum
 	# list nodes are the digits; digits stored in reverse order
@@ -100,10 +103,11 @@ class Solution(object):
 				if l2:
 					sum += l2.val
 					l2 = l2.next
-				carry = sum/10
+				carry = sum / 10
 				sum %= 10
 				curr.next = curr = ListNode(sum)
 			return solution.next
+
 
 	# 20 valid parentheses (easy)
 	# given string of parentheses, return if brackets open/close in correct order
@@ -124,6 +128,7 @@ class Solution(object):
 		return len(parentheses) == 0
 	# using a dict would be faster
 
+
 	# 15 3 sum (med)
 	# given array of integers, return all triplets which give sum 0
 	def threeSum(self, nums):
@@ -133,31 +138,32 @@ class Solution(object):
 		left = right = 0
 		# iterate through
 		# i = a index
-		for i in range(len(nums)-2):
+		for i in range(len(nums) - 2):
 			# skip repeated integers
-			if i > 0 and nums[i] == nums[i-1]:
+			if i > 0 and nums[i] == nums[i - 1]:
 				continue
 			# left = b index
 			# right = c index
-			left, right = i+1, len(nums)-1
+			left, right = i + 1, len(nums) - 1
 			while left < right: 
 				# b+c < -a; increase b 
-				if nums[left]+nums[right] < -nums[i]: 
+				if nums[left] + nums[right] < -nums[i]: 
 					left += 1
 				# b+c > -a; decrease c
-				elif nums[left]+nums[right] > -nums[i]:
-					right -=1
+				elif nums[left] + nums[right] > -nums[i]:
+					right -= 1
 				else:
 					solution.append([nums[i], nums[left], nums[right]])
-					# increase/decrease indexes to find new integers
-					while left < right and nums[left] == nums[left+1]:
+					# skip repeated integers
+					while left < right and nums[left] == nums[left + 1]:
 						left += 1
-					while left < right and nums[right] == nums[right-1]:
+					while left < right and nums[right] == nums[right - 1]:
 						right -= 1
 					# update b/c
 					left += 1
 					right -= 1
 		return solution
+
 
 	# 463 island perimeter (easy)
 	# given an 2d int array where 1 = land, 0 = water, return the perimeter of the island
@@ -167,11 +173,12 @@ class Solution(object):
 			for j in range (0, len(grid[i])):
 				if grid[i][j] == 1:
 					islands += 1
-					if j < len(grid[i])-1 and grid[i][j+1] == 1:
+					if j < len(grid[i]) - 1 and grid[i][j + 1] == 1:
 						neighbors += 1
-					if i < len(grid)-1 and grid[i+1][j] == 1:
+					if i < len(grid) - 1 and grid[i + 1][j] == 1:
 						neighbors += 1
-		return (islands*4)-(neighbors*2)
+		return (islands * 4) - (neighbors * 2)
+
 
 	# 226 invert binary tree (easy)
 	# recursive solution
@@ -190,9 +197,8 @@ class Solution(object):
 				stack.extend([curr.left, curr.right])
 		return root
 
+
 	# 206 reverse linked list
-	# smh at this garbage recursive solution 
-	# do better smh
 	def reverseList(self, head):
 		if head:
 			if head.next:
@@ -202,7 +208,7 @@ class Solution(object):
 				return new_head
 			else:
 				return head
-		
+
 	def reverse(self, new_tail, new_head):
 		if new_head.next:
 			temp = new_head.next
@@ -211,8 +217,13 @@ class Solution(object):
 		else:
 			new_head.next = new_tail
 			return new_head
+	# smh at this garbage recursive solution 
+	# do better smh
 
 	# iterative solution
+
+
+	#
 
 
 
