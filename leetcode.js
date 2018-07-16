@@ -20,7 +20,6 @@ var findDisappearedNumbers = function(nums) {
 // 617 merge 2 binary trees (easy)
 // given 2 binary trees, return a new binary tree which merges them such that new nodes use either the NOT null node (non-overlap)
 // or a new node where val = the sum of the original node vals
-
 /**
  * definition for a binary tree node.
  * function TreeNode(val) {
@@ -124,7 +123,6 @@ var mergeTwoLists = function(l1, l2) {
 // 543 diameter of a binary tree (easy)
 // given a binary tree, return the length of the diameter of the tree
 // diameter = longest path between any 2 nodes
-
 var diameterOfBinaryTree = function(root) {
 	if (root) {
 		// calculate the diameter of the left/right subtrees, as well as the sum of the max depths of the left/right subtrees
@@ -145,7 +143,6 @@ var maxDepth = function(root) {
 // 169 majority element (easy)
 // given array size n, return the majority element (appears more than n/2 times)
 // assume non-empty array 
-
 var majorityElement = function(nums) {
 	// implement 
 }
